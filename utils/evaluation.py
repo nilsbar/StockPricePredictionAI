@@ -3,7 +3,7 @@ from models.BaseModel import BaseModel
 from sklearn.metrics import mean_squared_error
 import numpy as np
 
-def backtest(data: pd.DataFrame, model: BaseModel, start:int = 2500, step:int = 250):
+def backtest(data: pd.DataFrame, model: BaseModel, start:int = 2500, step:int = 250, calculate_metric:callable = mean_squared_error) -> float:
     """
         This function evaluates a model with given data based on Backtesting.
 
@@ -13,7 +13,8 @@ def backtest(data: pd.DataFrame, model: BaseModel, start:int = 2500, step:int = 
         model (an object with a predict function and a train function): The model for evaluation
         start (int): Amount of training data for the first evaluation
         step (int): Horizon for prediction quality
-    
+        calculate_metric (callable): A function for the metric. It should take y_true (true labels) and y_pred (prediction labels as an input)
+
         Return:
 
         score (float): Evaluation score after Backtesting
@@ -28,6 +29,6 @@ def backtest(data: pd.DataFrame, model: BaseModel, start:int = 2500, step:int = 
         test = data.iloc[evaluation_step: evaluation_step + step]
         model.train(train_data = train)
         predictions = model.predict(test)
-        evaluation_scores.append(mean_squared_error(y_true=test, y_pred=predictions))
+        evaluation_scores.append(calculate_metric(y_true=test, y_pred=predictions))
 
     return np.mean(evaluation_scores)

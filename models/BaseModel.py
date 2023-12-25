@@ -6,8 +6,11 @@ class BaseModel:
     def __init__(self) -> None:
         pass
     
-    def predict():
+    def predict(self):
         pass
 
-    def train():
+    def train(self, parameters: dict):
+        pass
+
+    def upload_model():
         pass

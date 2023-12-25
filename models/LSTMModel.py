@@ -6,8 +6,12 @@ class LSTMModel(BaseModel):
     def __init__(self) -> None:
         super().__init__()
 
-    def train():
-        pass
+    def train(self, parameters: dict):
+        """
+        
+        """
+        super().train(parameters=parameters)
+           
 
     def predict():
         pass
