@@ -11,7 +11,7 @@ Notes: Bei Trainingspipeline kommt noch die Hyperparameteroptimierung mit Optuna
 
 With this pipeline, I want to provide the full model lifecycle.
 
-<img src="MLOps_Lifecylce.png">
+<img src="MLOps_Lifecycle.png">
 
 - Pre-Commit Hooks hinzufügen mit (Code Style Checks und Unittests)
 - Poetry initialisieren
