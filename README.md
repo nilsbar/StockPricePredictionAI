@@ -7,3 +7,7 @@ The aim of this project is to create a deployable model for stock price predicti
 
 
 Notes: Bei Trainingspipeline kommt noch die Hyperparameteroptimierung mit Optuna, Model Quality Validation mit Backtesting, Model registry mit Gitlab MLFlow CI, ohne Canary Deployment
+
+
+- Pre-Commit Hooks hinzufügen mit (Code Style Checks und Unittests)
+- Poetry initialisieren
