@@ -10,6 +10,8 @@ python = "^3.10,<3.12"
 tensorflow-io-gcs-filesystem = "0.31.0"
 tensorflow = "2.14.0"
 pandas = "^2.1.4"
+scikit-learn = "^1.3.2"
+statsmodels = "^0.14.1"
 
 
 [build-system]
