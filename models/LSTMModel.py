@@ -1,4 +1,13 @@
 from models.BaseModel import BaseModel
+import tensorflow as tf
 
 class LSTMModel(BaseModel):
-    pass
+    
+    def __init__(self) -> None:
+        super().__init__()
+
+    def train():
+        pass
+
+    def predict():
+        pass
