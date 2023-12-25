@@ -5,3 +5,5 @@ The aim of this project is to create a deployable model for stock price predicti
 
 <img src="Software Architecture.jpg">
 
+
+Notes: Bei Trainingspipeline kommt noch die Hyperparameteroptimierung mit Optuna, Model Quality Validation mit Backtesting, Model registry mit Gitlab MLFlow CI, ohne Canary Deployment
