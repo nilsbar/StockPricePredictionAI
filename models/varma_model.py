@@ -6,14 +6,18 @@ from models.base_model import BaseModel
 
 class VARMAModel(BaseModel):
     """
-    This class provides a SARIMAModel instance with the required Data preprocessing for this problem.
+    This class provides a VarMA Model instance with the required Data preprocessing for this problem.
     """
 
     def __init__(self) -> None:
+        """
+        This class provides a VarMA Model instance with the required Data preprocessing for this problem.
+        """
         super().__init__()
         self.model = sm.tsa.SARIMAX
+        mlflow_tag = "VarMa"
 
-    def train(self, data: pd.DataFrame, parameters: dict) -> None:
+    def train(self, train_data: pd.DataFrame, parameters: dict) -> None:
         """
         Changes the paramaters of the model and fits to the given data.
 
@@ -26,9 +30,9 @@ class VARMAModel(BaseModel):
 
         model: A fitted VarMa model according to the parameters and the data.
         """
-        super().train(data=data, parameters=dict)
+        super().train(train_data=train_data, parameters=dict)
         self.model = sm.tsa.VARMAX(
-            endog=data,
+            endog=train_data,
             order=parameters["order"],
         )
         self.model = self.model.fit(disp=False)

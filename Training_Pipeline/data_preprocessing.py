@@ -12,7 +12,7 @@ class DataPreprocessing:
         raw_data = self._datagathering()
         self.data = self._preprocessing(raw_data=raw_data)
 
-    def _datagathering(self):
+    def _datagathering(self) -> pd.DataFrame:
         """
         Gather the raw data through downloading with the yfinance package.
 
@@ -31,7 +31,7 @@ class DataPreprocessing:
         raw_data: pd.DataFrame,
         standart_scaling: bool = False,
         min_max_scaling: bool = False,
-    ):
+    ) -> pd.DataFrame:
         """
         Preprocess the data for models.
 
@@ -55,4 +55,4 @@ class DataPreprocessing:
             scaler = MinMaxScaler()
             preprocess_data = scaler.fit_transform(preprocess_data)
 
-        return preprocess_data[['Open', 'High', 'Low', 'Close']]
+        return preprocess_data[["Open", "High", "Low", "Close"]]

@@ -12,7 +12,7 @@ class BaseModel:
     def predict(self, steps: int):
         pass
 
-    def train(self, data: pd.DataFrame, parameters: dict):
+    def train(self, train_data: pd.DataFrame, parameters: dict):
         pass
 
     def upload_model():

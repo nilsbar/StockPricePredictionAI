@@ -11,7 +11,7 @@ Small Changes:
 Instead of the training/model validation node in the training pipeline, I implemented a Hyperparameteroptimization node which contains a training, model validation and result upload to MLflow experiments in his loop. 
 
 
-Notes: Bei Trainingspipeline kommt noch die Hyperparameteroptimierung mit Optuna, Model Quality Validation mit Backtesting, Model registry mit Gitlab MLFlow CI, ohne Canary Deployment. In der Deployment-Pipeline werden bestehende Modelle mit neu generierten Daten getestet und der Score in MLflow hochgeladen. Und Hyperparameteroptimierung findet nur in der CI statt und für jedes Modell einzeln.
+Notes: Bei Trainingspipeline kommt noch die Hyperparameteroptimierung mit Optuna, Model Quality Validation mit Backtesting, Model registry mit Gitlab MLFlow CI, ohne Canary Deployment. In der Deployment-Pipeline werden bestehende Modelle mit neu generierten Daten getestet und der Score in MLflow hochgeladen. Und Hyperparameteroptimierung findet nur in der CI statt und für jedes Modell einzeln, Optuna-Schema in der Hyperparameteroptimierung sollte für jedes Modell selbst geschrieben werden.
 
 Frage, Sollte das hochladen in jeder Modellklasse sein? Dann wird tag und alles in der Klasse gesetzt.
 
@@ -45,6 +45,8 @@ Für pre-commit-hooks:
 Next steps could be...
 
 - DVC instead of updating the DataFrame to MLflow
+
+- Generalize the data preprocessing node because it only works 
 
 pre-commit:
 
