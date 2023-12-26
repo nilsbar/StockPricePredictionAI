@@ -1,7 +1,7 @@
 import Pandas as pd
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
-from models.BaseModel import BaseModel
+from models.base_model import BaseModel
 
 
 class SARIMAModel(BaseModel):

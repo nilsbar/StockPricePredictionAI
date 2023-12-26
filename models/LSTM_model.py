@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-from models.BaseModel import BaseModel
+from models.base_model import BaseModel
 
 
 class LSTMModel(BaseModel):

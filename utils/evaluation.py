@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_squared_error
 
-from models.BaseModel import BaseModel
+from models.base_model import BaseModel
 
 
 def backtest(
