@@ -45,7 +45,9 @@ class DataPreprocessing:
         preprocessed data (pd.DataFrame)
         """
         assert (standart_scaling is False) or (min_max_scaling is False)
-        preprocess_data = raw_data.loc["1990-01-01":].copy()
+        preprocess_data = raw_data.loc[
+            "2023-01-01":
+        ].copy()  # start date for cutting DataFrame
 
         if standart_scaling is True:
             scaler = StandardScaler()

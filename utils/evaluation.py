@@ -9,8 +9,8 @@ def backtest(
     data: pd.DataFrame,
     model: BaseModel,
     hyperparameters: dict,
-    start: int = 2500,
-    step: int = 250,
+    start: int = 50,
+    step: int = 5,
     calculate_metric: callable = mean_squared_error,
 ) -> float:
     """
@@ -36,9 +36,11 @@ def backtest(
 
     for evaluation_step in range(start, data.shape[0], step):
         train = data.iloc[0:evaluation_step].copy()
-        test = data.iloc[evaluation_step : evaluation_step + step]
         model.train(train_data=train, parameters=hyperparameters)
+        if data.shape[0] - evaluation_step < step:    
+            break
+        test = data.iloc[evaluation_step : evaluation_step + step]
         predictions = model.predict(steps=step)
         evaluation_scores.append(calculate_metric(y_true=test, y_pred=predictions))
-
+        print(calculate_metric(y_true=test, y_pred=predictions))
     return np.mean(evaluation_scores)

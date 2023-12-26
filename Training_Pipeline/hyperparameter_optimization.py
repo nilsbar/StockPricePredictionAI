@@ -44,6 +44,6 @@ class HyperParameterOptimization:
             model = VARMAModel()
             return backtest(data=data, model=model, hyperparameters=parameters)
 
-        study = optuna.create_study(direction="maximize")
+        study = optuna.create_study(direction="minimize")
         study.optimize(objective, n_trials=100)
-        return 0  # get the best trial
+        return study.best_trial.params
