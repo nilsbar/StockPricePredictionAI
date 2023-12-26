@@ -1,8 +1,9 @@
 import yfinance as yf
 
-class DataPreprocessing():
+
+class DataPreprocessing:
     """
-        A class for preprocessing and gathering the data for model training. 
+    A class for preprocessing and gathering the data for model training.
     """
 
     def __init__(self) -> None:
