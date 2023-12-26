@@ -1,4 +1,4 @@
-import Pandas as pd
+import pandas as pd
 
 
 class BaseModel:
@@ -9,7 +9,7 @@ class BaseModel:
     def __init__(self) -> None:
         pass
 
-    def predict(self):
+    def predict(self, steps: int):
         pass
 
     def train(self, data: pd.DataFrame, parameters: dict):
