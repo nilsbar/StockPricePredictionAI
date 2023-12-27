@@ -1,6 +1,6 @@
 class PipelineNode:
     """
-        This is a scheme for the nodes of the pipeline.
+    This is a scheme for the nodes of the pipeline.
     """
 
     def __init__(self):

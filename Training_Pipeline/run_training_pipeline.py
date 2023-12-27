@@ -1,5 +1,6 @@
 from training_pipeline.data_preprocessing import DataPreprocessing
-from training_pipeline.hyperparameter_optimization import HyperParameterOptimization
+from training_pipeline.hyperparameter_optimization import \
+    HyperParameterOptimization
 from utils.pipeline import Pipeline
 
 data_preprocessing = DataPreprocessing()

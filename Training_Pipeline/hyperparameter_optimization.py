@@ -5,6 +5,7 @@ from models.varma_model import VARMAModel
 from utils.evaluation import backtest
 from utils.pipeline_node import PipelineNode
 
+
 class HyperParameterOptimization(PipelineNode):
     """
     Hyperparameter optimization node for the training pipeline.
@@ -27,7 +28,7 @@ class HyperParameterOptimization(PipelineNode):
         if self.model_scheme == "varma":
             result = self._hyperparameter_optimization_for_varma(data=input)
         return result
-    
+
     def _hyperparameter_optimization_for_varma(self, data: pd.DataFrame):
         """
         Hyperparameteroptimization with the optuna framework.
