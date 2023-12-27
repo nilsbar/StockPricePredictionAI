@@ -10,7 +10,7 @@ class DataPreprocessing:
 
     def __init__(self) -> None:
         raw_data = self._datagathering()
-        self.data = self._preprocessing(raw_data=raw_data)
+        self.result = self._preprocessing(raw_data=raw_data)
 
     def _datagathering(self) -> pd.DataFrame:
         """

@@ -35,12 +35,11 @@ def backtest(
     evaluation_scores = []
 
     for evaluation_step in range(start, data.shape[0], step):
+        if data.shape[0] - evaluation_step < step:
+            break
         train = data.iloc[0:evaluation_step].copy()
         model.train(train_data=train, parameters=hyperparameters)
-        if data.shape[0] - evaluation_step < step:    
-            break
         test = data.iloc[evaluation_step : evaluation_step + step]
         predictions = model.predict(steps=step)
         evaluation_scores.append(calculate_metric(y_true=test, y_pred=predictions))
-        print(calculate_metric(y_true=test, y_pred=predictions))
     return np.mean(evaluation_scores)

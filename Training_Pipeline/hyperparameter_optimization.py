@@ -22,7 +22,7 @@ class HyperParameterOptimization:
         """
         self.model_scheme = model_scheme
         if type(model_scheme) is VARMAModel:
-            self.model = self._hyperparameter_optimization_for_varma(data=data)
+            self.result = self._hyperparameter_optimization_for_varma(data=data)
 
     def _hyperparameter_optimization_for_varma(self, data: pd.DataFrame):
         """
@@ -45,5 +45,9 @@ class HyperParameterOptimization:
             return backtest(data=data, model=model, hyperparameters=parameters)
 
         study = optuna.create_study(direction="minimize")
-        study.optimize(objective, n_trials=100)
-        return study.best_trial.params
+        study.optimize(objective, n_trials=10)
+        # replace it with the optimal model from the trials and try to reuse it but it is complicated because it is backtested
+        best_params = study.best_trial.params
+        best_model = VARMAModel()
+        best_model.train(train_data=data, parameters=best_params)
+        return best_model.model
