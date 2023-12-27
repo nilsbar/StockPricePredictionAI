@@ -1,16 +1,32 @@
 import pandas as pd
 import yfinance as yf
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from utils.pipeline_node import PipelineNode
 
-
-class DataPreprocessing:
+class DataPreprocessing(PipelineNode):
     """
     A class for preprocessing and gathering the data for model training.
     """
 
     def __init__(self) -> None:
+        super().__init__() 
+
+    def process(self, input):
+        """
+        Hits the process for data gathering and preprocessing.
+
+        Parameters:
+        
+        input (None)
+
+        Return:
+        
+        result: preprocessed data for the next node.
+        """
+        super().process(input=input)
         raw_data = self._datagathering()
-        self.result = self._preprocessing(raw_data=raw_data)
+        return self._preprocessing(raw_data=raw_data)
+
 
     def _datagathering(self) -> pd.DataFrame:
         """

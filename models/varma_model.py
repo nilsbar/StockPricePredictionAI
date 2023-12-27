@@ -30,7 +30,7 @@ class VARMAModel(BaseModel):
 
         model: A fitted VarMa model according to the parameters and the data.
         """
-        super().train(train_data=train_data, parameters=dict)
+        super().train(train_data=train_data, parameters=parameters)
         self.model = sm.tsa.VARMAX(
             endog=train_data,
             order=parameters["order"],
